@@ -42,7 +42,7 @@ const Home = () => {
                     <h2 className=' text-xl'>--- Sip & Savor ---</h2>
                     <h2 className=' text-[58px] ' style={{textShadow: 'text-shadow: rgb(82 72 59) 3px 3px 4px'}}>Our Popular Products</h2>
                     <Link className=' '>
-                        <a href='#' className=' '> Add Coffee</a>
+                        <a href='#' className=' '> </a>
                         <VscCoffee /> 
                     </Link>
                 </div>
