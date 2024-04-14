@@ -1,14 +1,18 @@
-
-import icon1 from '../../../assets/images/icons/1.png'
-import icon2 from '../../../assets/images/icons/2.png'
-import icon3 from '../../../assets/images/icons/3.png'
-import icon4 from '../../../assets/images/icons/4.png'
+import { Link, useLoaderData } from 'react-router-dom';
+import icon1 from '../../../assets/images/icons/1.png';
+import icon2 from '../../../assets/images/icons/2.png';
+import icon3 from '../../../assets/images/icons/3.png';
+import icon4 from '../../../assets/images/icons/4.png';
+import coffeeBg from "../../../assets/images/more/1.png";
+import AddProctuct from '../AddProduct/AddProctuct';
 import Banner from './Banner';
+import { VscCoffee } from "react-icons/vsc";
 
 const Home = () => {
+    const coffees = useLoaderData();
     return (
         <div>
-        <Banner/>
+            <Banner />
             <div className=" w-full bg-[#ECEAE3] ">
                 <div className="grid lg:grid-cols-4 container mx-auto gap-3 place-content-center place-items-center">
                     <div className=" p-5">
@@ -30,6 +34,26 @@ const Home = () => {
                         <img className='mb-3' src={icon4} alt="" />
                         <p className="text-3xl text-[#331A15]">Proper Roasting</p>
                         <p className='text-[#1B1A1A]'>Your coffee is brewed by first roasting the green coffee beans</p>
+                    </div>
+                </div>
+            </div>
+            <div>
+                <div className=' text-center mt-16'>
+                    <h2 className=' text-xl'>--- Sip & Savor ---</h2>
+                    <h2 className=' text-[58px] ' style={{textShadow: 'text-shadow: rgb(82 72 59) 3px 3px 4px'}}>Our Popular Products</h2>
+                    <Link className=' '>
+                        <a href='#' className=' '> Add Coffee</a>
+                        <VscCoffee /> 
+                    </Link>
+                </div>
+
+
+                <div className='bg-no-repeat p-48 w-full' style={{ backgroundImage: `url(${coffeeBg}` }}>
+
+                    <div className="md:grid grid-cols-2 gap-4 container mx-auto">
+                        {
+                            coffees.map(coffee => <AddProctuct key={coffee._id} coffee={coffee} />)
+                        }
                     </div>
                 </div>
             </div>

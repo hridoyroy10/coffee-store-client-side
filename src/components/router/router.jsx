@@ -5,9 +5,7 @@ import Service from "../Page/Service/Service";
 import Login from "../LeyOut/Login/Login";
 import Registration from "../LeyOut/Registration/Registration";
 import Update from "../Page/Update/Update";
-import AddCoffee from "../Page/AddCoffee/AddCoffee";
-
-
+import AddCoffee from '../Page/AddCoffee/AddCoffee'
 
 const router = createBrowserRouter([
     {
@@ -16,7 +14,8 @@ const router = createBrowserRouter([
         children: [
             {
                 path: '/',
-                element: <Home />
+                element: <Home />,
+                loader: () => fetch('http://localhost:5000/coffee')
             },
             {
                 path: "/service",
@@ -31,13 +30,14 @@ const router = createBrowserRouter([
                 element: <Registration />
             },
             {
+                path:"/addCoffee",
+                element:<AddCoffee/>
+            },
+            {
                 path: '/update',
                 element: <Update />
             },
-            {
-                path: "/addcoffee",
-                element: <AddCoffee />
-            }
+
 
 
         ]
