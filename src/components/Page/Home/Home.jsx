@@ -7,7 +7,6 @@ import coffeeBg from "../../../assets/images/more/1.png";
 import AddProctuct from '../AddProduct/AddProctuct';
 import Banner from './Banner';
 import { VscCoffee } from "react-icons/vsc";
-
 const Home = () => {
     const coffees = useLoaderData();
     return (
@@ -38,15 +37,12 @@ const Home = () => {
                 </div>
             </div>
             <div>
-                <div className=' text-center mt-16'>
+                <div className=' max-w-[600px] m-auto text-center '>
                     <h2 className=' text-xl'>--- Sip & Savor ---</h2>
-                    <h2 className=' text-[58px] ' style={{textShadow: 'text-shadow: rgb(82 72 59) 3px 3px 4px'}}>Our Popular Products</h2>
-                    <Link className=' '>
-                        <a href='#' className=' '> </a>
-                        <VscCoffee /> 
-                    </Link>
-                </div>
+                    <h2 className=' text-[58px] mb-8' style={{ textShadow: 'text-shadow: rgb(82 72 59) 3px 3px 4px' }}>Our Popular Products</h2>
+                    <a href="#" className=' bg-[#E3B577] p-4 text-2xl rounded-2xl text-white'>Add Coffee <VscCoffee className=' text-black text-2xl inline-block'/></a>
 
+                </div>
 
                 <div className='bg-no-repeat p-48 w-full' style={{ backgroundImage: `url(${coffeeBg}` }}>
 
