@@ -1,9 +1,9 @@
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
 import Swal from 'sweetalert2';
 
-const AddProctuct = ({ coffee }) => {
-    const { name, chef, supplier, price, category, details, _id, photo } = coffee;
-    console.log(coffee);
+const AddProctuct = ({ coffee, coffees, setCoffees }) => {
+    const { name, chef, price, _id, photo } = coffee;
 
     const handleDelete = (_id) => {
         Swal.fire({
@@ -27,6 +27,8 @@ const AddProctuct = ({ coffee }) => {
                                 text: "Your Coffee has been deleted.",
                                 icon: "success"
                             });
+                            const remaining = coffees.filter(cof => cof._id !== _id);
+                            setCoffees(remaining)
                         }
                     })
             }
@@ -49,7 +51,9 @@ const AddProctuct = ({ coffee }) => {
 
                     <div className="join join-vertical space-y-4">
                         <button className="btn rounded-xl">View</button>
-                        <button className="btn rounded-xl">Edit</button>
+                        <Link to={`/update/${_id}`}>
+                            <button className="btn rounded-xl">Edit</button>
+                        </Link>
                         <button onClick={() => handleDelete(_id)} className="btn rounded-xl">X</button>
                     </div>
                 </div>
@@ -61,7 +65,9 @@ const AddProctuct = ({ coffee }) => {
 };
 
 AddProctuct.propTypes = {
-    coffee: PropTypes.object.isRequired
+    coffee: PropTypes.object.isRequired,
+    coffees: PropTypes.object.isRequired,
+    setCoffees: PropTypes.object.isRequired
 }
 
 export default AddProctuct;

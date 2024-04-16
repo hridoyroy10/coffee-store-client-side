@@ -5,7 +5,6 @@ const Header = () => {
     const links = <>
         <li><NavLink className=" text-xl font-medium" to="/">Home</NavLink></li>
         <li><NavLink className=" text-xl font-medium" to='/service'>Service</NavLink></li>
-        <li><NavLink className=" text-xl font-medium" to='/update'>Update</NavLink></li>
         <li><NavLink className=" text-xl font-medium" to='/addcoffee'>Add Coffee</NavLink></li>
     </>
 

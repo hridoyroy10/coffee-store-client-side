@@ -7,12 +7,14 @@ import coffeeBg from "../../../assets/images/more/1.png";
 import AddProctuct from '../AddProduct/AddProctuct';
 import Banner from './Banner';
 import { VscCoffee } from "react-icons/vsc";
+import { useState } from 'react';
 const Home = () => {
-    const coffees = useLoaderData();
+    const loadedCoffees = useLoaderData();
+    const [coffees, setCoffees] = useState(loadedCoffees); 
     return (
         <div>
             <Banner />
-            <div className=" w-full bg-[#ECEAE3] ">
+            <div className=" w-full bg-[#ECEAE3] mb-36 ">
                 <div className="grid lg:grid-cols-4 container mx-auto gap-3 place-content-center place-items-center">
                     <div className=" p-5">
                         <img className=' mb-3' src={icon1} alt="" />
@@ -44,11 +46,15 @@ const Home = () => {
 
                 </div>
 
-                <div className='bg-no-repeat p-48 w-full' style={{ backgroundImage: `url(${coffeeBg}` }}>
+                <div className='bg-no-repeat p-48 w-full ' style={{ backgroundImage: `url(${coffeeBg}` }}>
 
                     <div className="md:grid grid-cols-2 gap-4 container mx-auto">
                         {
-                            coffees.map(coffee => <AddProctuct key={coffee._id} coffee={coffee} />)
+                            coffees.map(coffee => <AddProctuct 
+                                key={coffee._id} 
+                                coffees={coffees}
+                                setCoffees={setCoffees}
+                                coffee={coffee} />)
                         }
                     </div>
                 </div>
