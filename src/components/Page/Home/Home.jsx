@@ -1,4 +1,4 @@
-import { Link, useLoaderData } from 'react-router-dom';
+import { useLoaderData } from 'react-router-dom';
 import icon1 from '../../../assets/images/icons/1.png';
 import icon2 from '../../../assets/images/icons/2.png';
 import icon3 from '../../../assets/images/icons/3.png';
